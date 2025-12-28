@@ -43,11 +43,10 @@ jobs:
     - name: Make scripts executable
       run: |
         chmod +x _genonce.sh
-        chmod +x _apply_branding.sh
 
     - name: Build IG with CPage branding
       run: |
-        ./_genonce.sh
+        java -jar input-cache/publisher.jar -ig ig.ini
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
