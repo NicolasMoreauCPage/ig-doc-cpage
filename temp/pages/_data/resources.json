@@ -1,0 +1,66 @@
+{
+  "ImplementationGuide/hl7.other.uv.template" : {
+    "history" : false,
+    "testplan" : false,
+    "testscript" : false,
+    "index" : 0,
+    "source" : "/home/nico/Travail/FHIR_IG/fsh-generated/resources/ImplementationGuide-hl7.other.uv.template.json",
+    "sourceTail" : "ImplementationGuide-hl7.other.uv.template.json",
+    "path" : "index.html",
+    "url" : "https://example.com/fhir/ig/template/ImplementationGuide/hl7.other.uv.template",
+    "version" : "1.0.0",
+    "name" : "TemplateIGFr",
+    "title" : "Template d'IG FHIR en Français",
+    "titlelang" : {
+    },
+    "date" : "2025-12-29T00:20:28+01:00",
+    "description" : "Un template pour créer des Implementation Guides FHIR avec style personnalisé et langue française",
+    "descriptionlang" : {
+    },
+    "jurisdictions" : [
+      {
+        "code" : "FR",
+        "name" : "France",
+        "flag" : "fra"
+      }
+    ],
+    "status" : {
+      "class" : "colsd",
+      "owner" : "CPage",
+      "link" : "https://www.cpage.example",
+      "status" : "Draft"
+    }
+  },
+  "StructureDefinition/mon-profil" : {
+    "history" : false,
+    "testplan" : false,
+    "testscript" : false,
+    "index" : 1,
+    "source" : "fsh-generated/resources/StructureDefinition-mon-profil.json",
+    "sourceTail" : "StructureDefinition-mon-profil.json",
+    "path" : "StructureDefinition-mon-profil.html",
+    "url" : "https://example.com/fhir/ig/template/StructureDefinition/mon-profil",
+    "version" : "1.0.0",
+    "name" : "MonProfil",
+    "title" : "Mon Profil Patient",
+    "titlelang" : {
+    },
+    "date" : "2025-12-29T00:20:28+01:00",
+    "description" : "Un exemple de profil patient personnalisé",
+    "descriptionlang" : {
+    },
+    "jurisdictions" : [
+      {
+        "code" : "FR",
+        "name" : "France",
+        "flag" : "fra"
+      }
+    ],
+    "status" : {
+      "class" : "colsd",
+      "owner" : "CPage",
+      "link" : "https://www.cpage.example",
+      "status" : "Draft"
+    }
+  }
+}

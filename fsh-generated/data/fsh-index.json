@@ -1,0 +1,10 @@
+[
+  {
+    "outputFile": "StructureDefinition-mon-profil.json",
+    "fshName": "MonProfil",
+    "fshType": "Profile",
+    "fshFile": "profiles.fsh",
+    "startLine": 3,
+    "endLine": 10
+  }
+]

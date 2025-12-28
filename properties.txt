@@ -1,2 +1,0 @@
-jiraSpecFile:OTHER-template
-packagelisturl:https://example.com/fhir/ig/template/package-list.json
