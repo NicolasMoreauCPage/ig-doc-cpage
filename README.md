@@ -4,32 +4,18 @@ Template personnalisé pour les Implementation Guides FHIR avec branding CPage.
 
 ## 🚀 Utilisation
 
-### Génération automatique avec branding CPage
+### Génération
 
-Pour générer l'IG avec le branding CPage automatiquement appliqué :
-
-```bash
-./_genonce_cpage.sh
-```
-
-Ce script :
-1. Génère l'IG avec le template personnalisé
-2. Applique automatiquement le branding CPage (logo, couleurs)
-3. Crée une sauvegarde du fichier original
-
-### Génération classique
-
-Pour générer l'IG sans branding automatique :
+Le branding CPage est entièrement géré par le *template* (ig-template-cpage). Pour générer l'IG :
 
 ```bash
 ./_genonce.sh
 ```
 
-Puis appliquer manuellement le branding :
-
-```bash
-./_apply_cpage_branding.sh
-```
+Explications :
+- Le template apporte le logo, les styles CSS et tous les assets de branding.
+- Il ne doit pas exister de script d'application de branding dans le dépôt de l'IG.
+- Si vous utilisez un template distant (GitHub), assurez-vous que `ig.ini` référence le template correct.
 
 ## 🎨 Branding CPage
 
@@ -45,10 +31,9 @@ Le template inclut :
 FHIR_IG/
 ├── ig.ini                    # Configuration IG
 ├── input/                    # Contenu source
-├── output/                   # IG générée (branding appliqué)
+├── output/                   # IG générée
 ├── scripts/                  # Scripts de génération
-├── _genonce_cpage.sh         # Script combiné avec branding
-├── _apply_cpage_branding.sh  # Script d'application branding
+├── _genonce.sh               # Script de génération (utilise le template)
 └── template/                 # Template local (optionnel)
 ```
 
