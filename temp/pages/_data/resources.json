@@ -4,7 +4,7 @@
     "testplan" : false,
     "testscript" : false,
     "index" : 0,
-    "source" : "/home/nico/Travail/FHIR_IG/fsh-generated/resources/ImplementationGuide-hl7.other.uv.template.json",
+    "source" : "/home/nico/Travail/ig-fhir-doc-cpage/fsh-generated/resources/ImplementationGuide-hl7.other.uv.template.json",
     "sourceTail" : "ImplementationGuide-hl7.other.uv.template.json",
     "path" : "index.html",
     "url" : "https://example.com/fhir/ig/template/ImplementationGuide/hl7.other.uv.template",
@@ -13,7 +13,7 @@
     "title" : "Template d'IG FHIR en Français",
     "titlelang" : {
     },
-    "date" : "2025-12-29T19:18:29+01:00",
+    "date" : "2025-12-30T12:28:40+01:00",
     "description" : "Un template pour créer des Implementation Guides FHIR avec style personnalisé et langue française",
     "descriptionlang" : {
     },
@@ -45,7 +45,7 @@
     "title" : "Mon Profil Patient",
     "titlelang" : {
     },
-    "date" : "2025-12-29T19:18:29+01:00",
+    "date" : "2025-12-30T12:28:40+01:00",
     "description" : "Un exemple de profil patient personnalisé",
     "descriptionlang" : {
     },

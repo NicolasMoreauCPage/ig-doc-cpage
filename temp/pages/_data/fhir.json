@@ -15,10 +15,10 @@
   "toolingVersion" : "5.0.0",
   "toolingRevision" : "3",
   "toolingVersionFull" : "5.0.0 (3)",
-  "genDate" : "Mon, Dec 29, 2025 19:18+0100",
-  "genDay" : "29/12/2025",
-  "totalFiles" : 15,
-  "processedFiles" : 21,
+  "genDate" : "Tue, Dec 30, 2025 12:28+0100",
+  "genDay" : "30/12/2025",
+  "totalFiles" : 25,
+  "processedFiles" : 31,
   "repoSource" : "https://github.com/NicolasMoreauCPage/ig-cpage",
   "resourceTypes" : [
     "Account",
@@ -254,7 +254,7 @@
         "telecom" : ["https://www.cpage.example", "contact@cpage.example"]
       }
     ],
-    "date" : "2025-12-29T19:18:29+01:00",
+    "date" : "2025-12-30T12:28:40+01:00",
     "description" : "Un template pour créer des Implementation Guides FHIR avec style personnalisé et langue française",
     "descriptionlang" : {
     },

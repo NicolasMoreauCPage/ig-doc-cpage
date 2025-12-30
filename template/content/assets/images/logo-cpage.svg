@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="160" height="40" viewBox="0 0 160 40" role="img" aria-label="CPage logo">
-  <rect width="160" height="40" fill="#0063dc" rx="6"/>
-  <g transform="translate(10,8)">
-    <rect width="24" height="24" fill="#ffc800" rx="4"/>
-    <path d="M34 4h10v24H34z" fill="#ffffff"/>
-    <text x="50" y="20" font-family="Inter, Arial, sans-serif" font-size="16" fill="#ffffff" font-weight="700">CPage</text>
-  </g>
-</svg>
