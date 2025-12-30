@@ -1,57 +1,161 @@
-# Déploiement & publication (CI/CD)
-Cette section explique comment fonctionne la génération automatique (CI/CD) et la publication de votre IG FHIR sur GitHub Pages.
+# Publication, validation et déploiement des IG FHIR
 
-### Fonctionnement
-- À chaque push ou pull request sur la branche `main`, le workflow `.github/workflows/build-ig.yml` compile automatiquement l'IG.
-- Le site HTML généré est publié sur GitHub Pages.
+La publication d'un IG FHIR est une étape critique qui transforme vos artefacts en ressource accessible et maintenable. Cette page détaille le processus complet de validation, publication et déploiement.
 
-### Lien du site IG compilé
-- Après chaque build, le site est accessible à l'adresse :
-	`https://<utilisateur>.github.io/<nom-du-repo>/`
-	Exemple : `https://nicolasmoreaucpage.github.io/ig-fhir-doc-cpage/`
+## Validation : Assurer la qualité
 
-### Consulter le statut du build
-- Onglet **Actions** du dépôt GitHub.
-- Les artefacts générés (site complet) sont téléchargeables dans chaque run.
+### Types de validation
 
-### Personnalisation
-- Le workflow CI/CD est défini dans `.github/workflows/build-ig.yml`.
-- Il utilise Java, Ruby/Jekyll, et le Publisher HL7.
-- Pour modifier le déploiement, adaptez ce fichier YAML.
+#### 1. Validation syntaxique
+- **FSH** : Syntaxe correcte des fichiers `.fsh`
+- **JSON/XML** : Conformité au schéma FHIR
+- **Outil** : SUSHI (`sushi .`) et IG Publisher
 
-### Dépannage
-- Voir les logs dans l'onglet Actions.
-- Vérifier la configuration de GitHub Pages dans les paramètres du dépôt.
+#### 2. Validation sémantique
+- **Profils** : Cohérence des contraintes
+- **Terminologies** : Codes valides et à jour
+- **Exemples** : Conformité aux profils
 
-### Voir aussi
-- [GitHub Pages](https://docs.github.com/fr/pages)
-- [GitHub Actions](https://docs.github.com/fr/actions)
+#### 3. Validation fonctionnelle
+- **Interopérabilité** : Tests d'échange entre systèmes
+- **Performance** : Taille des payloads, temps de réponse
+- **Sécurité** : Conformité RGPD, authentification
 
-# Publication, validation et gestion des versions
+### Outils de validation
 
-## Publication
-- Utilisez IG Publisher pour générer le site web et le package FHIR.
-- Publiez sur un hébergement public (GitHub Pages, serveur interne, etc.).
-- Versionnez chaque publication (numéro, date, changelog).
-- Rendez accessibles toutes les versions historiques.
-- Documentez le workflow de publication (scripts, automatisation).
+- **IG Publisher** : Validation automatique lors de la génération
+- **FHIR Validator** : Outil en ligne de commande
+- **Touchstone** : Plateforme de test d'interopérabilité
+- **Postman/Newman** : Tests d'API automatisés
 
-## Validation
-- Vérifiez la conformité FHIR avec IG Publisher et les outils de validation.
-- Contrôlez la qualité (liens, images, ressources, orthographe).
-- Corrigez toutes les erreurs/avertissements QA avant publication.
-- Testez la navigation et l’accessibilité du site généré.
+### Critères de qualité
 
-## Gestion des évolutions
-- Proposez un canal de remontée des problèmes (Issues GitHub, formulaire, email).
-- Documentez chaque issue (titre, description détaillée, proposition de correction).
-- Priorisez et planifiez les évolutions selon les retours utilisateurs.
-- Communiquez sur les évolutions majeures (changelog, page d’actualités).
+- ✅ **0 erreur** dans les logs IG Publisher
+- ✅ **Exemples valides** pour tous les profils
+- ✅ **Terminologies résolues** et à jour
+- ✅ **Documentation complète** et claire
 
-## Historique
-## Historique
-- Maintenez un historique des versions (changelog, page dédiée, tags Git).
-- Archivez les anciennes versions et garantissez leur accessibilité.
-- Documentez les changements entre chaque version.
+## Publication : Rendre accessible
 
-> **À consulter :** La page [Bonnes pratiques](bonnes-pratiques.html) détaille les exigences de qualité et de conformité pour la publication d’un IG FHIR.
+### Formats de publication
+
+#### 1. Site web (recommandé)
+- **Génération** : IG Publisher crée un site Jekyll
+- **Hébergement** : GitHub Pages, serveur interne
+- **Avantages** : Navigation facile, recherche intégrée
+
+#### 2. Package NPM
+- **Contenu** : Artefacts FHIR + dépendances
+- **Usage** : Réutilisation dans d'autres IG
+- **Publication** : Registre NPM ou dépôt privé
+
+#### 3. Documentation PDF
+- **Usage** : Archives, conformité réglementaire
+- **Génération** : À partir du HTML ou outils spécialisés
+
+### Processus de publication
+
+1. **Build local** : `./_genonce.sh`
+2. **Validation** : Vérifier les logs et rapports QA
+3. **Tests** : Validation croisée avec consommateurs
+4. **Versionning** : Tag Git, numéro de version
+5. **Déploiement** : Push sur branche de publication
+
+## Déploiement automatisé
+
+### GitHub Actions (recommandé)
+
+#### Configuration
+- **Workflow** : `.github/workflows/build-ig.yml`
+- **Déclencheur** : Push sur `main` ou releases
+- **Actions** :
+  - Installation SUSHI, Java, Jekyll
+  - Génération avec IG Publisher
+  - Déploiement sur GitHub Pages
+
+#### Exemple de workflow
+```yaml
+name: Build IG
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Java
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+    - name: Install SUSHI
+      run: npm install -g fsh-sushi
+    - name: Generate IG
+      run: ./_genonce.sh
+    - name: Deploy to Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./output
+```
+
+### Avantages de l'automatisation
+
+- **Reproductibilité** : Builds identiques
+- **Rapidité** : Déploiement en quelques minutes
+- **Fiabilité** : Moins d'erreurs manuelles
+- **Traçabilité** : Historique complet des builds
+
+## Gestion des versions
+
+### Stratégie de versionning
+
+- **Semantic Versioning** : `MAJEUR.MINEUR.CORRECTIF`
+  - **Majeur** : Changements cassants
+  - **Mineur** : Nouvelles fonctionnalités
+  - **Correctif** : Corrections de bugs
+
+### Processus
+
+1. **Développement** : Branche `main` ou feature branches
+2. **Release** : Création d'un tag `v1.2.3`
+3. **Publication** : Build automatique du tag
+4. **Communication** : Changelog, notes de version
+
+### Gestion des anciennes versions
+
+- **Archivage** : Conserver les builds historiques
+- **Accessibilité** : URLs stables pour les anciennes versions
+- **Support** : Période de maintenance définie
+
+## Maintenance et évolution
+
+### Surveillance post-publication
+
+- **Métriques** : Nombre de consultations, téléchargements
+- **Feedback** : Issues GitHub, retours utilisateurs
+- **Mises à jour** : Évolutions FHIR, corrections
+
+### Processus d'évolution
+
+1. **Collecte des besoins** : Issues, demandes utilisateurs
+2. **Priorisation** : Impact, urgence, complexité
+3. **Développement** : Branches feature, tests
+4. **Validation** : Revue, tests d'intégration
+5. **Publication** : Nouvelle version
+
+## Bonnes pratiques
+
+- **Validez tôt et souvent** : Intégrez la validation dans votre workflow
+- **Automatisez** : CI/CD pour réduire les erreurs
+- **Documentez** : Changements, décisions, rationales
+- **Communiquez** : Annonces de nouvelles versions
+- **Surveillez** : Usage et feedback post-publication
+
+## Ressources complémentaires
+
+- [Guide de publication HL7](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation)
+- [GitHub Pages](https://docs.github.com/en/pages)
+- [Semantic Versioning](https://semver.org/)
+- [CI/CD avec GitHub Actions](https://docs.github.com/en/actions)
+
+> **Rappel** : Un IG bien publié est un IG utilisé. La qualité de la publication détermine l'adoption de vos spécifications.

@@ -1,92 +1,220 @@
-# Installation des outils sur Windows sans droits administrateur
+# Outils et technologies pour les IG FHIR
 
-## 1. Installer Node.js en mode portable
+Développer un Implementation Guide FHIR nécessite un écosystème d'outils complémentaires. Cette page présente les outils essentiels, leur rôle, et comment les utiliser efficacement.
 
-1. Télécharger la version Windows ZIP de Node.js (LTS) depuis :
-	https://nodejs.org/en/download
-2. Extraire l’archive dans un dossier de votre choix (ex : `C:\Users\<votre_user>\nodejs`)
-3. Ajouter ce dossier à la variable d’environnement PATH (temporairement pour la session) :
-	```cmd
-	set PATH=C:\Users\<votre_user>\nodejs;%PATH%
-	```
-4. Vérifier l’installation :
-	```cmd
-	node -v
-	npm -v
-	```
+## Chaîne d'outils principale
 
-## 2. Installer Ruby et Jekyll en standalone
+### FHIR Shorthand (FSH)
+**Rôle** : Langage de définition des artefacts FHIR
+**Avantages** :
+- Syntaxe lisible et concise
+- Moins verbeux que JSON/XML
+- Validation intégrée
+- Génération automatique de documentation
 
-1. Télécharger Ruby portable (ex : https://github.com/oneclick/rubyinstaller2/releases → assets → ruby-[version]-x64-mingw-ucrt.7z)
-2. Extraire dans `C:\Users\<votre_user>\ruby` et ajouter à votre PATH :
-	```cmd
-	set PATH=C:\Users\<votre_user>\ruby\bin;%PATH%
-	```
-3. Installer Bundler et Jekyll localement :
-	```cmd
-	gem install --user-install bundler jekyll
-	set PATH=%USERPROFILE%\AppData\Roaming\Ruby\bin;%PATH%
-	```
-4. Vérifier :
-	```cmd
-	jekyll -v
-	bundler -v
-	```
+**Installation** :
+```bash
+npm install -g fsh-sushi
+```
 
-## 3. Installer SUSHI (FSH) localement
+**Usage de base** :
+```fsh
+Profile: MonPatient
+Parent: Patient
+* name 1..* MS
+* birthDate 1..1
+```
 
-1. Installer SUSHI dans le dossier courant (pas besoin d’admin) :
-	```cmd
-	npm install --prefix . -g fsh-sushi
-	set PATH=%CD%\node_modules\.bin;%PATH%
-	sushi -v
-	```
-
-## 4. Installer l’IG Publisher (FHIR)
-
-1. Télécharger le JAR depuis :
-	https://github.com/HL7/fhir-ig-publisher/releases/latest
-2. Placer le fichier `publisher.jar` dans un dossier accessible (ex : `C:\Users\<votre_user>\fhir`)
-3. Lancer avec Java portable (téléchargeable ici : https://adoptium.net/temurin/releases/?version=17)
-	```cmd
-	java -jar C:\Users\<votre_user>\fhir\publisher.jar -ig .
-	```
-
-## 5. Conseils généraux
-
-- Utilisez des chemins sans espace ni accent.
-- Pour automatiser, créez un fichier batch (.bat) avec les commandes ci-dessus.
-- Pour chaque session, relancez les commandes `set PATH=...` si besoin.
-
-> **Astuce** : Ces méthodes permettent d’installer et d’utiliser tous les outils FHIR IG sans droits administrateur sur Windows.
-> **Conseil :** Pour l’utilisation optimale de ces outils, reportez-vous à la page [Bonnes pratiques](bonnes-pratiques.html).
-
-# Outils et technologies IG FHIR
-
-## FSH (FHIR Shorthand)
-Langage dédié à la définition concise des profils, extensions, instances et autres artefacts FHIR.
+**Ressources** :
 - [Documentation FSH](https://build.fhir.org/ig/HL7/fhir-shorthand/)
 - [FSH School](https://fshschool.org/)
 
-## SUSHI
-Compilation des fichiers FSH en ressources FHIR (JSON/XML).
-- Commande de base : `sushi .`
-- Générer les snapshots : `sushi -s .`
+### SUSHI (FSH Compiler)
+**Rôle** : Compilation FSH vers ressources FHIR
+**Fonctionnalités** :
+- Génération de StructureDefinitions
+- Création d'exemples
+- Validation syntaxique
+- Génération de snapshots
 
-## GoFSH
-Conversion de ressources FHIR existantes (JSON/XML) en FSH.
-- Commande de base : `gofsh .`
-- Pour JSON et XML : `gofsh -t json-and-xml .`
-- Comparaison JSON initial/généré : `gofsh --fshing-trip`
+**Commandes essentielles** :
+```bash
+sushi .                    # Compilation complète
+sushi -s .                # Avec snapshots
+sushi --help              # Aide
+```
 
-## IG Publisher
-Génération du site web IG à partir de la structure de dossiers et fichiers (markdown, FSH, ressources, images…).
-- [Documentation IG Publisher](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation)
-- Nécessite Java 17+ et Jekyll.
+**Dépannage** : Vérifiez les logs pour les erreurs de syntaxe FSH.
 
-## Autres outils
-- [HL7 IG Template Base](https://github.com/HL7/ig-template-base)
-- [NPM Package Specification](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
-- [Clinical Quality Language (CQL)](https://cql.hl7.org/)
+### IG Publisher (HL7)
+**Rôle** : Génération du site web IG
+**Capacités** :
+- Validation complète des artefacts
+- Génération HTML/CSS/JS
+- Rapports de qualité (QA)
+- Publication prête
 
-Voir aussi la section "Liens utiles".
+**Configuration** : `ig.ini` et `sushi-config.yaml`
+
+**Lancement** :
+```bash
+java -jar publisher.jar -ig .
+```
+
+**Rapports importants** :
+- `output/qa.html` : Rapport qualité
+- `output/index.html` : Site généré
+
+### Jekyll (Templating)
+**Rôle** : Moteur de génération de sites statiques
+**Intégration** : Utilisé par IG Publisher pour le rendu final
+
+**Personnalisation** : Modifiez `template/` pour adapter l'apparence.
+
+## Outils de développement
+
+### Éditeurs et IDE
+
+#### Visual Studio Code
+**Extensions recommandées** :
+- FHIR Shorthand (pour FSH)
+- XML Tools (pour FHIR XML)
+- JSON Tools (pour FHIR JSON)
+
+#### Forge (éditeur web)
+- Interface graphique pour profils/extensions
+- Simplifié pour débutants
+- Export vers FSH
+
+### Outils de validation
+
+#### FHIR Validator (ligne de commande)
+```bash
+java -jar validator.jar -version 4.0.1 mon-fichier.json
+```
+
+#### Touchstone (plateforme de test)
+- Tests d'interopérabilité
+- Validation contre profils
+- Certificats de conformité
+
+### Outils de terminologie
+
+#### Ontoserver
+- Serveur de terminologie open source
+- Support SNOMED CT, LOINC
+- API FHIR Terminology
+
+#### TermWeb
+- Interface web pour exploration
+- Recherche dans les terminologies
+
+## Environnements de développement
+
+### Installation complète (recommandé)
+
+#### Windows (avec droits admin)
+1. **Node.js** : [nodejs.org](https://nodejs.org/) (LTS)
+2. **Java 17** : [adoptium.net](https://adoptium.net/)
+3. **Ruby + Jekyll** : `gem install jekyll bundler`
+4. **SUSHI** : `npm install -g fsh-sushi`
+5. **IG Publisher** : Télécharger le JAR
+
+#### Windows (sans droits admin)
+1. **Node.js portable** : Extraire ZIP dans dossier utilisateur
+2. **Java portable** : Archive ZIP dans dossier utilisateur
+3. **Ruby portable** : [rubyinstaller.org](https://rubyinstaller.org/) (option utilisateur)
+4. **SUSHI local** : `npm install fsh-sushi` (dans projet)
+5. **IG Publisher** : JAR dans dossier utilisateur
+
+#### Linux
+```bash
+# Node.js
+curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Java
+sudo apt install openjdk-17-jdk
+
+# Ruby
+sudo apt install ruby-full
+sudo gem install jekyll bundler
+
+# SUSHI
+sudo npm install -g fsh-sushi
+```
+
+### Environnements alternatifs
+
+#### Docker
+```bash
+# Conteneur avec tous les outils
+docker run -it --rm -v $(pwd):/workspace hl7fhir/ig-publisher-base:latest
+```
+
+#### GitHub Codespaces
+- Environnement cloud prêt à l'emploi
+- Configuration automatique des outils
+- Collaboration facilitée
+
+## Workflow de développement
+
+### Processus recommandé
+
+1. **Configuration** : Cloner le template, configurer outils
+2. **Modélisation** : Créer profils/extensions en FSH
+3. **Compilation** : `sushi .` pour générer artefacts
+4. **Validation** : IG Publisher pour vérifier qualité
+5. **Documentation** : Pages Markdown pour guides
+6. **Publication** : Git push pour déclencher CI/CD
+
+### Automatisation
+
+#### Scripts locaux
+- `_genonce.sh` : Build complet
+- `_gencontinuous.sh` : Surveillance et rebuild automatique
+
+#### Intégration continue
+- GitHub Actions pour builds automatiques
+- Tests automatisés à chaque push
+- Déploiement automatique sur GitHub Pages
+
+## Ressources d'apprentissage
+
+### Documentation officielle
+- [HL7 FHIR](https://www.hl7.org/fhir/)
+- [IG Publisher Guide](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation)
+- [FSH School](https://fshschool.org/)
+
+### Communautés
+- [Chat FHIR Zulip](https://chat.fhir.org/)
+- [Forum HL7](https://www.hl7.org/participate/forum/)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/fhir)
+
+### Exemples et templates
+- [IG Template Base](https://github.com/HL7/ig-template-base)
+- [US Core](https://github.com/HL7/US-Core)
+- [mCODE](https://github.com/HL7/fhir-mCODE-ig)
+
+## Dépannage courant
+
+### SUSHI ne trouve pas les dépendances
+- Vérifier `sushi-config.yaml` (section `dependencies`)
+- Relancer `sushi .`
+
+### IG Publisher : erreurs de validation
+- Consulter `output/qa.html`
+- Corriger les erreurs FSH/JSON
+- Vérifier les terminologies
+
+### Jekyll : problèmes de rendu
+- Vérifier la syntaxe Markdown
+- Contrôler les liens relatifs
+- Tester localement : `jekyll serve`
+
+### Performance
+- Optimiser les images
+- Réduire la complexité des profils
+- Utiliser des value sets appropriés
+
+> **Conseil** : Commencez avec le template HL7 et progressez étape par étape. La communauté FHIR est très active pour aider les débutants.
