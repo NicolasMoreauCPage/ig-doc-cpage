@@ -120,12 +120,132 @@ java -jar validator.jar -version 4.0.1 mon-fichier.json
 4. **SUSHI** : `npm install -g fsh-sushi`
 5. **IG Publisher** : Télécharger le JAR
 
-#### Windows (sans droits admin)
-1. **Node.js portable** : Extraire ZIP dans dossier utilisateur
-2. **Java portable** : Archive ZIP dans dossier utilisateur
-3. **Ruby portable** : [rubyinstaller.org](https://rubyinstaller.org/) (option utilisateur)
-4. **SUSHI local** : `npm install fsh-sushi` (dans projet)
-5. **IG Publisher** : JAR dans dossier utilisateur
+#### Windows (sans droits admin) - GUIDE DÉTAILLÉ POUR DÉBUTANTS
+
+Si vous n'avez pas les droits administrateur sur votre machine Windows (cas fréquent en entreprise), voici un guide **pas à pas** pour installer tous les outils nécessaires.
+
+##### 1. Préparation : Créer un dossier pour les outils
+```cmd
+mkdir C:\MesOutilsFHIR
+cd C:\MesOutilsFHIR
+```
+
+##### 2. Node.js portable
+**Pourquoi ?** Nécessaire pour SUSHI et les outils JavaScript
+**Téléchargement :** [nodejs.org/download](https://nodejs.org/en/download/) → Windows Binary (.zip)
+**Étapes :**
+1. Téléchargez `node-v18.x.x-win-x64.zip` (version LTS)
+2. Extrayez le ZIP dans `C:\MesOutilsFHIR\nodejs\`
+3. Testez : `C:\MesOutilsFHIR\nodejs\node.exe -v`
+
+**Configuration PATH temporaire :**
+```cmd
+set PATH=C:\MesOutilsFHIR\nodejs;%PATH%
+node -v
+npm -v
+```
+
+##### 3. Java portable
+**Pourquoi ?** Requis pour IG Publisher
+**Téléchargement :** [adoptium.net/temurin/releases](https://adoptium.net/temurin/releases/) → Windows x64 ZIP
+**Étapes :**
+1. Téléchargez `OpenJDK17U-jdk_x64_windows_hotspot_17.x.x.zip`
+2. Extrayez dans `C:\MesOutilsFHIR\java\`
+3. Testez : `C:\MesOutilsFHIR\java\bin\java.exe -version`
+
+**Configuration PATH temporaire :**
+```cmd
+set PATH=C:\MesOutilsFHIR\java\bin;%PATH%
+java -version
+```
+
+##### 4. Ruby portable pour Jekyll
+**Pourquoi ?** Pour la génération du site web
+**Téléchargement :** [rubyinstaller.org](https://rubyinstaller.org/) → WITH DEVKIT (option utilisateur)
+**Étapes :**
+1. Téléchargez `rubyinstaller-devkit-3.2.x-x64.exe`
+2. Lors de l'installation :
+   - Cochez "Install Ruby for all users" → NON
+   - Répertoire : `C:\MesOutilsFHIR\ruby`
+3. Ouvrez l'invite Ruby : Menu Démarrer → Ruby → Start Command Prompt with Ruby
+4. Installez Jekyll : `gem install jekyll bundler`
+5. Testez : `jekyll -v`
+
+##### 5. SUSHI (local dans le projet)
+**Pourquoi ?** Compiler FSH vers FHIR
+**Installation :**
+```cmd
+# Dans votre dossier IG (pas besoin d'admin)
+cd C:\MonProjetIG
+npm install fsh-sushi
+```
+
+**Utilisation :**
+```cmd
+# Utiliser SUSHI local
+npx sushi .
+```
+
+##### 6. IG Publisher
+**Pourquoi ?** Générer le site web final
+**Téléchargement :** [github.com/HL7/fhir-ig-publisher/releases](https://github.com/HL7/fhir-ig-publisher/releases)
+**Étapes :**
+1. Téléchargez `publisher.jar` (dernière version)
+2. Placez dans `C:\MesOutilsFHIR\publisher.jar`
+
+**Utilisation :**
+```cmd
+java -jar C:\MesOutilsFHIR\publisher.jar -ig .
+```
+
+##### 7. Script de lancement automatique (recommandé)
+Créez `C:\MesOutilsFHIR\lancer-ig.bat` :
+```bat
+@echo off
+echo Configuration des outils FHIR...
+
+set PATH=C:\MesOutilsFHIR\nodejs;%PATH%
+set PATH=C:\MesOutilsFHIR\java\bin;%PATH%
+
+echo Node.js version:
+node -v
+echo NPM version:
+npm -v
+echo Java version:
+java -version
+
+echo Outils configurés ! Vous pouvez maintenant utiliser SUSHI et IG Publisher.
+cmd
+```
+
+**Utilisation :** Double-cliquez sur `lancer-ig.bat` pour ouvrir un terminal configuré.
+
+##### 8. Vérifications finales
+```cmd
+# Dans le terminal configuré
+node -v          # Devrait afficher la version
+npm -v           # Devrait afficher la version
+java -version    # Devrait afficher Java 17
+jekyll -v        # Devrait afficher Jekyll
+npx sushi -v     # Devrait afficher SUSHI
+```
+
+##### Dépannage installation sans admin
+
+**Problème : "command not found"**
+- Vérifiez que vous utilisez le bon terminal (celui lancé par `lancer-ig.bat`)
+- Relancez `lancer-ig.bat` si nécessaire
+
+**Problème : Droits insuffisants**
+- Vérifiez que vous installez dans votre dossier utilisateur (`C:\Users\VotreNom\`)
+- Évitez `C:\Program Files\`
+
+**Problème : Ruby ne s'installe pas**
+- Utilisez l'installeur Ruby avec l'option "utilisateur seulement"
+- Fermez tous les terminaux Ruby avant l'installation
+
+**Problème : SUSHI lent**
+- Utilisez `npm install fsh-sushi --production` pour une installation plus légère
 
 #### Linux
 ```bash
