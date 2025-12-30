@@ -49,6 +49,8 @@ pages:
     title: Liens utiles
   annexes.md:
     title: Annexes
+  integration-package.md:
+    title: Intégration du package IG FHIR
 
 menu:
   "Accueil": index.html
@@ -63,3 +65,4 @@ menu:
   "FAQ": faq.html
   "Liens utiles": liens-utiles.html
   "Annexes": annexes.html
+  "Intégration du package IG FHIR": integration-package.html
