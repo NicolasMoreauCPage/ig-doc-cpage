@@ -1,4 +1,3 @@
-
 # Bonnes pratiques FHIR officielles
 
 
@@ -143,4 +142,13 @@ Pour plus de détails, voir la [documentation officielle FHIR IG Guidance](https
 
 
 
-Pour plus de détails, voir la [documentation officielle FHIR IG Guidance](https://build.fhir.org/ig/FHIR/ig-guidance/best-practice.html), la section "Publication et validation" et la FAQ.
+## 10. Publication sur GitHub Pages
+
+Pour publier automatiquement votre guide sur GitHub Pages :
+
+- Rendez-vous dans l’onglet **Settings > Pages** de votre dépôt GitHub.
+- Dans la section "Build and deployment", choisissez **GitHub Actions** comme source de publication.
+- Le reste de la configuration (branche, dossier, workflow) est déjà géré par le fichier GitHub Actions du dépôt.
+- Vérifiez l’URL de publication fournie par GitHub après activation.
+
+> Pour plus de détails, voir la documentation officielle : [GitHub Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages) et [GitHub Actions for Pages](https://github.com/actions/configure-pages).
