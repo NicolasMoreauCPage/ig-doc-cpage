@@ -27,6 +27,14 @@ parameters:
 pages:
   index.md:
     title: Accueil
+  quickstart.md:
+    title: Prise en main rapide
+  structure-pages-menu.md:
+    title: Structure des pages & menu
+  installation.md:
+    title: Installation des outils
+  deploiement-publication.md:
+    title: Déploiement & publication
   introduction.md:
     title: Introduction
   structure-ig.md:
@@ -46,14 +54,11 @@ pages:
   annexes.md:
     title: Annexes
 
-  installation.md:
-    title: Installation de Sushi et Jekyll
-
-  structure-menu-pages.md:
-    title: Déclarer pages & menu
-
-menu:
   Accueil: index.html
+  "Prise en main rapide": quickstart.html
+  "Structure des pages & menu": structure-pages-menu.html
+  "Installation des outils": installation.html
+  "Déploiement & publication": deploiement-publication.html
   Introduction: introduction.html
   Structure:
     "Structure d'un IG": structure-ig.html
@@ -64,8 +69,4 @@ menu:
   FAQ: faq.html
   "Liens utiles": liens-utiles.html
   Annexes: annexes.html
-
-  Installation: installation.html
-
-  "Déclarer pages & menu": structure-menu-pages.html
 
