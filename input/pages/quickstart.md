@@ -30,14 +30,13 @@ ig-[organisation]-[standard]-[type]-[projet]
 **Composants du modèle :**
 
 1. **Préfixe obligatoire** : `ig-` (pour Implementation Guide)
-2. **Organisation** : nom de votre société/organisation (ex: `cpage`, `ans`, `hopital-x`)
 3. **Standard** : technologie sur laquelle s'appuie l'IG :
    - `fhir` : pour FHIR pur
    - `hprimxml` : pour HPRIM XML
    - `hl7v2` : pour HL7 v2
    - `ihepam` : pour IHE PAM
    - `cda` : pour CDA
-   - `general` : pour usage général
+   - `general` : pour usage général/multi-standards
 4. **Type** : nature du contenu :
    - `spec` : spécification technique
    - `doc` : documentation
@@ -52,8 +51,8 @@ ig-[organisation]-[standard]-[type]-[projet]
 - **Pas de caractères spéciaux** : accents, apostrophes, etc. interdits
 - **Unicité globale** : votre ID doit être unique sur tout FHIR (évitez les noms génériques)
 
-**Exemple concret du template CPage :**
-- `ig-cpage-fhir-template` (organisation: cpage, standard: fhir, type: template)
+**Exemple concret du template CPage (général) :**
+- `ig-cpage-general-template` (organisation: cpage, standard: general, type: template)
 
 **Exemples invalides :**
 - `mon-projet-ig` ❌ (ne commence pas par `ig-`)
@@ -67,15 +66,15 @@ Modifiez les informations principales :
 
 **Exemple concret du template CPage :**
 ```yaml
-id: ig-cpage-fhir-template
-canonical: https://www.cpage.fr/ig/ig-cpage-fhir-template
-name: IG FHIR Template CPage
-title: "Template IG FHIR CPage"
+id: ig-cpage-general-template
+canonical: https://www.cpage.fr/ig/ig-cpage-general-template
+name: IG Template CPage
+title: "Template IG CPage"
 publisher:
   name: CPage
   url: https://www.cpage.fr
 description: >-
-  Template d'un IG FHIR CPage.
+  Template général d'un IG CPage applicable à tous les standards.
 version: 0.1.0
 date: 2025-12-30
 copyrightYear: 2025
@@ -104,7 +103,7 @@ copyright-year = 2025
 - `copyright-year` : Année en cours
 - Gardez le `template` pointant vers le template CPage
 
-**Exemple avec ID `ig-cpage-fhir-template` :**
+**Exemple avec ID `ig-cpage-general-template` :**
 ```ini
 [IG]
 ig = fsh-generated/resources/ImplementationGuide-ig-cpage-fhir-template.json
