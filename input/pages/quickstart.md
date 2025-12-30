@@ -16,23 +16,47 @@ Après avoir cloné le template IG CPage, vous devez configurer plusieurs fichie
 
 ### 1. Choix de l'ID dans sushi-config.yaml
 
-L'ID doit respecter les **règles strictes des templates FHIR IG** :
+L'ID doit respecter les **règles strictes des templates FHIR IG** et être **unique globalement** :
 
 ```yaml
-id: ig-mon-organisation-mon-projet  # Format recommandé
+id: ig-[organisation]-[standard]-[type]-[projet]
 ```
 
+**Modèle normalisé recommandé :**
+```
+ig-[organisation]-[standard]-[type]-[projet]
+```
+
+**Composants du modèle :**
+
+1. **Préfixe obligatoire** : `ig-` (pour Implementation Guide)
+2. **Organisation** : nom de votre société/organisation (ex: `cpage`, `ans`, `hopital-x`)
+3. **Standard** : technologie sur laquelle s'appuie l'IG :
+   - `fhir` : pour FHIR pur
+   - `hprimxml` : pour HPRIM XML
+   - `hl7v2` : pour HL7 v2
+   - `ihepam` : pour IHE PAM
+   - `cda` : pour CDA
+   - `general` : pour usage général
+4. **Type** : nature du contenu :
+   - `spec` : spécification technique
+   - `doc` : documentation
+   - `guide` : guide d'implémentation
+   - `profile` : profils uniquement
+5. **Projet** : nom spécifique du projet (ex: `patient-management`, `radiologie`, `2025`)
+
 **Règles strictes à respecter :**
-- **Format obligatoire** : `ig-[organisation]-[projet]` (tout en minuscules)
+- **Format obligatoire** : `ig-[minuscules]-[tirets]-uniquement`
 - **Caractères autorisés** : lettres minuscules, chiffres, tirets uniquement
 - **Pas d'espaces** : remplacez par des tirets
 - **Pas de caractères spéciaux** : accents, apostrophes, etc. interdits
 - **Unicité globale** : votre ID doit être unique sur tout FHIR (évitez les noms génériques)
 
 **Exemples valides :**
-- `ig-cpage-patient-management`
-- `ig-hopital-x-radiologie-2025`
-- `ig-ans-si-dep`
+- `ig-cpage-fhir-guide-patient-management`
+- `ig-ans-hl7v2-spec-si-dep-2025`
+- `ig-hopital-x-fhir-profile-radiologie`
+- `ig-cpage-hprimxml-doc-general`
 
 **Exemples invalides :**
 - `mon-projet-ig` ❌ (ne commence pas par `ig-`)
@@ -45,20 +69,20 @@ id: ig-mon-organisation-mon-projet  # Format recommandé
 Modifiez les informations principales :
 
 ```yaml
-id: ig-mon-organisation-mon-projet
-canonical: https://mon-organisation.github.io/ig-mon-organisation-mon-projet  # URL de publication
-name: IG FHIR Mon Organisation - Mon Projet
-title: "Guide d'implémentation FHIR - Mon Projet"
+id: ig-cpage-fhir-guide-patient-management
+canonical: https://cpage.github.io/ig-cpage-fhir-guide-patient-management  # URL de publication
+name: IG FHIR CPage - Guide Gestion Patient
+title: "Guide d'implémentation FHIR - Gestion des patients"
 publisher:
-  name: Mon Organisation
-  url: https://www.mon-organisation.fr
+  name: CPage
+  url: https://www.cpage.fr
 contact:
   - name: Équipe FHIR
     telecom:
       - system: email
-        value: fhir@mon-organisation.fr
+        value: fhir@cpage.fr
 description: >-
-  Description détaillée de votre IG et de son objectif.
+  Guide d'implémentation FHIR pour la gestion des patients à CPage.
 version: 0.1.0  # Version sémantique
 date: 2025-12-30  # Date du jour
 copyrightYear: 2025  # Année en cours
@@ -87,10 +111,10 @@ copyright-year = 2025
 - `copyright-year` : Année en cours
 - Gardez le `template` pointant vers le template CPage
 
-**Exemple avec ID `ig-cpage-mon-projet` :**
+**Exemple avec ID `ig-cpage-fhir-guide-patient-management` :**
 ```ini
 [IG]
-ig = fsh-generated/resources/ImplementationGuide-ig-cpage-mon-projet.json
+ig = fsh-generated/resources/ImplementationGuide-ig-cpage-fhir-guide-patient-management.json
 template = https://github.com/NicolasMoreauCPage/ig-template-cpage
 usage-stats-opt-out = true
 copyright-year = 2025
