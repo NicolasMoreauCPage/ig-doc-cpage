@@ -4,7 +4,7 @@
   "url": "https://www.cpage.fr/ig/ig-fhir-doc-cpage/ImplementationGuide/ig-fhir-doc-cpage",
   "version": "0.1.0",
   "name": "IGFHIRDocCPage",
-  "title": "Guide documentaire CPage des guides d'implémentaion FHIR",
+  "title": "Guide documentaire CPage des guides d'implémentation FHIR",
   "status": "draft",
   "date": "2025-12-30",
   "publisher": "CPage",
