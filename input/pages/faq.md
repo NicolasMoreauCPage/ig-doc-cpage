@@ -1,44 +1,44 @@
 
+
 # FAQ – Questions fréquentes sur les IG FHIR
 
-Cette page rassemble les questions les plus courantes sur le développement, la publication et la maintenance des Implementation Guides FHIR. Si votre question n'y figure pas, consultez la communauté FHIR ou ouvrez une Issue.
+Cette page rassemble les questions les plus courantes sur le développement, la publication et la maintenance des Implementation Guides FHIR. Si votre question n'y figure pas, consultez la communauté FHIR ou ouvrez une issue.
 
 ## Questions générales
 
-### Qu'est-ce qu'un IG FHIR exactement ?
+### Qu'est-ce qu'un IG FHIR ?
 
-Un Implementation Guide FHIR est un document technique structuré qui décrit **comment utiliser FHIR** pour un cas d'usage spécifique. Il comprend :
+Un Implementation Guide FHIR est un document technique qui décrit comment utiliser FHIR pour un cas d'usage spécifique. Il comprend :
+- Profils : contraintes sur les ressources FHIR
+- Extensions : nouveaux éléments de données
+- Exemples : instances concrètes d'usage
+- Règles métier : logique de validation et traitement
+- Documentation : guides d'implémentation
 
-- **Profils** : Contraintes sur les ressources FHIR
-- **Extensions** : Nouveaux éléments de données
-- **Exemples** : Instances concrètes d'usage
-- **Règles métier** : Logique de validation et traitement
-- **Documentation** : Guides d'implémentation
-
-Un IG transforme FHIR générique en spécifications opérationnelles pour votre domaine.
+Un IG transforme FHIR générique en spécifications opérationnelles pour un domaine donné.
 
 ### Qui peut créer un IG ?
 
-**Tout le monde !** Les IG sont ouverts à contribution :
-- **Équipes produit** : Pour spécifier leurs besoins
-- **Intégrateurs** : Pour documenter les implémentations
-- **Éditeurs** : Pour standardiser leurs APIs
-- **Communautés** : Pour des standards sectoriels
+Tout le monde. Les IG sont ouverts à contribution :
+- Équipes produit : pour spécifier leurs besoins
+- Intégrateurs : pour documenter les implémentations
+- Éditeurs : pour standardiser leurs APIs
+- Communautés : pour des standards sectoriels
 
 La seule condition : respecter les bonnes pratiques FHIR et HL7.
 
 ### Quelle est la différence entre un profil et une extension ?
 
-- **Profil** : Contraint une ressource existante (ex: rendre obligatoire un élément optionnel)
-- **Extension** : Ajoute un nouvel élément de donnée non prévu dans le core FHIR
+- Profil : contraint une ressource existante (ex : rendre obligatoire un élément optionnel)
+- Extension : ajoute un nouvel élément de donnée non prévu dans le core FHIR
 
-**Règle simple** : Si FHIR a déjà l'élément (même optionnel), utilisez un profil. Sinon, créez une extension.
+Règle simple : si FHIR a déjà l'élément (même optionnel), utilisez un profil. Sinon, créez une extension.
 
 ## Développement technique
 
 ### FSH ou JSON/XML pour définir les profils ?
 
-**FSH est recommandé** pour :
+FSH est recommandé pour :
 - Syntaxe plus lisible et concise
 - Moins d'erreurs de frappe
 - Maintenance facilitée
@@ -49,14 +49,13 @@ Utilisez JSON/XML seulement pour des cas complexes non supportés par FSH.
 ### Comment valider un IG ?
 
 Plusieurs niveaux de validation :
+1. Syntaxe FSH : `sushi .` (compilation)
+2. Conformité FHIR : IG Publisher (`_genonce.sh`)
+3. Qualité : rapport QA (`output/qa.html`)
+4. Interopérabilité : tests avec consommateurs
+5. Performance : tests de charge
 
-1. **Syntaxe FSH** : `sushi .` (compilation)
-2. **Conformité FHIR** : IG Publisher (`_genonce.sh`)
-3. **Qualité** : Rapport QA (`output/qa.html`)
-4. **Interopérabilité** : Tests avec consommateurs
-5. **Performance** : Tests de charge
-
-**Objectif** : 0 erreur dans les logs IG Publisher.
+Objectif : 0 erreur dans les logs IG Publisher.
 
 ### SUSHI ne trouve pas mes dépendances
 

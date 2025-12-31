@@ -1,61 +1,69 @@
-# Bonnes pratiques FHIR officielles
+
+# Bonnes pratiques FHIR
+
 
 
 
 ## Organisation des pages
 
-- Séparez le contenu normatif (critères de conformité) du contenu non-normatif (contexte, cas d’usage, téléchargements, etc.).
-- Ajoutez des pages dédiées pour l’arrière-plan, les téléchargements, et regroupez le contenu normatif.
+- Séparer le contenu normatif (critères de conformité) du contenu non-normatif (contexte, cas d’usage, téléchargements, etc.)
+- Ajouter des pages dédiées pour l’arrière-plan, les téléchargements, et regrouper le contenu normatif
+
 
 
 
 ## Rédaction et narration
 
-- Privilégiez la clarté, la concision et l’accessibilité pour les développeurs.
-- Évitez le jargon métier ou expliquez-le via des liens ou des définitions.
-- Ajoutez des introductions à chaque artefact pour expliquer leur utilité et leur contexte.
-- Utilisez des styles narratifs (stu-note, dragon, feedback…) pour attirer l’attention sur des points clés ou avertissements.
-- Structurez l’IG pour qu’un développeur puisse comprendre l’essentiel en 30 minutes.
-- Utilisez des liens internes et externes pour faciliter la navigation.
+- Privilégier la clarté, la concision et l’accessibilité
+- Expliquer le jargon métier ou le documenter
+- Ajouter une introduction à chaque artefact pour expliquer son utilité
+- Structurer l’IG pour qu’un développeur comprenne l’essentiel rapidement
+- Utiliser des liens internes et externes pour la navigation
+
 
 
 ### Navigation et structure
 
-- Privilégiez des pages complètes plutôt que de multiples petites pages.
-- Ajoutez des ancres explicites pour faciliter le référencement et la navigation.
-- Présentez les informations dans un ordre logique, mais prévoyez des liens avant/arrière pour les lecteurs qui naviguent aléatoirement.
+- Privilégier des pages complètes plutôt que de multiples petites pages
+- Ajouter des ancres explicites pour le référencement
+- Présenter les informations dans un ordre logique, prévoir des liens avant/arrière
+
 
 
 ### Gestion des artefacts et profils
 
-- Ne créez que les artefacts réellement utiles et maintenables sur le long terme.
-- Utilisez mustSupport pour indiquer ce qui doit être supporté, sans surcontraindre la cardinalité.
-- Évitez de forcer la présence de meta.profile dans les exemples.
-- Documentez les raisons des choix de conception (rationales) pour faciliter la maintenance.
+- Créer uniquement les artefacts utiles et maintenables
+- Utiliser mustSupport pour indiquer ce qui doit être supporté, sans surcontraindre la cardinalité
+- Éviter de forcer la présence de meta.profile dans les exemples
+- Documenter les choix de conception pour la maintenance
+
 
 
 ### Exemples et extensions
 
-- Fournissez des exemples couvrant tous les éléments mustSupport et toutes les extensions définies.
-- Avant de créer une extension, vérifiez si une extension existante ou un élément du core peut convenir.
-- Documentez les usages attendus et les cas limites.
+- Fournir des exemples couvrant tous les éléments mustSupport et toutes les extensions définies
+- Avant de créer une extension, vérifier si une extension existante ou un élément du core peut convenir
+- Documenter les usages attendus et les cas limites
+
 
 
 ### Sécurité et confidentialité
 
-- Ajoutez une section dédiée expliquant les risques, les contre-mesures et les principes de sécurité/confidentialité applicables.
-- Référencez les modules FHIR sur la sécurité et la confidentialité.
+- Ajouter une section dédiée sur les risques, contre-mesures et principes de sécurité/confidentialité
+- Référencer les modules FHIR sur la sécurité et la confidentialité
+
 
 
 ### Généralités
 
-- Mettez sous contrôle de version tout le contenu source.
-- Relisez et corrigez l’orthographe et la grammaire.
-- Indiquez comment contacter la communauté ou l’équipe pour des questions ou suggestions.
-- Expliquez les relations avec d’autres IG (dépendances formelles ou informelles).
+- Mettre sous contrôle de version tout le contenu source
+- Relire et corriger l’orthographe et la grammaire
+- Indiquer comment contacter la communauté ou l’équipe pour des questions ou suggestions
+- Expliquer les relations avec d’autres IG (dépendances formelles ou informelles)
 
 
-Pour plus de détails, voir la [documentation officielle FHIR IG Guidance](https://build.fhir.org/ig/FHIR/ig-guidance/best-practice.html).
+
+Pour plus de détails, voir la documentation officielle FHIR IG Guidance : https://build.fhir.org/ig/FHIR/ig-guidance/best-practice.html
 
 
 

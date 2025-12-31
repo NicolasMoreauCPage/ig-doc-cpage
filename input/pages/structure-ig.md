@@ -1,62 +1,28 @@
+
 # Structure d'un Implementation Guide FHIR
 
-Un Implementation Guide FHIR est un document vivant qui organise et présente des spécifications d'interopérabilité. Cette page détaille l'architecture logique d'un IG et les bonnes pratiques de structuration.
+Un Implementation Guide FHIR organise et présente des spécifications d'interopérabilité. Cette page détaille l'architecture logique d'un IG et les bonnes pratiques de structuration.
+
 
 ## Vue d'ensemble d'un IG
 
-Un IG FHIR regroupe plusieurs composants complémentaires :
+Un IG FHIR regroupe plusieurs composants :
+- Artefacts techniques : profils, extensions, terminologies
+- Documentation narrative : guides d'implémentation, cas d'usage
+- Exemples concrets : instances d'échange
+- Métadonnées : informations de publication et conformité
+- Ressources complémentaires : outils, tests, support
 
-- **Artefacts techniques** : Profils, extensions, terminologies
-- **Documentation narrative** : Guides d'implémentation, cas d'usage
-- **Exemples concrets** : Instances d'échange
-- **Métadonnées** : Informations de publication et conformité
-- **Ressources complémentaires** : Outils, tests, support
+L'objectif est de transformer FHIR générique en spécifications opérationnelles pour un domaine donné.
 
-L'objectif : transformer FHIR générique en spécifications opérationnelles pour votre domaine.
 
 ## Organisation logique
 
-### 1. Page d'accueil (index.md)
-**Rôle** : Point d'entrée et présentation générale
-**Contenu** :
-- Résumé de l'IG et son domaine d'application
-- Public cible et prérequis
-- Plan du guide et navigation principale
-- Liens vers les sections essentielles
-
-### 2. Introduction et contexte
-**Rôle** : Expliquer le "pourquoi" et le "comment"
-**Contenu** :
-- Problématique métier adressée
-- Bénéfices de l'interopérabilité FHIR
-- Portée et limites de l'IG
-- Relations avec d'autres standards/IG
-
-### 3. Artefacts techniques
-**Rôle** : Spécifications formelles
-**Sections** :
-- **[Profils](profiles.html)** : Contraintes sur les ressources
-- **[Extensions](extensions.html)** : Nouveaux éléments de données
-- **[Terminologies](terminologies.html)** : Codes et value sets
-- **Opérations** : Interactions personnalisées
-- **Recherche** : Paramètres de recherche spécifiques
-
-### 4. Guides d'implémentation
-**Rôle** : Accompagner les développeurs
-**Contenu** :
-- Workflows métier
-- Algorithmes de traitement
-- Règles de validation
-- Gestion des erreurs
-- Exemples d'intégration
-
-### 5. Exemples et cas d'usage
-**Rôle** : Illustrer concrètement
-**Types d'exemples** :
-- Instances minimales valides
-- Scénarios complexes
-- Cas limites et erreurs
-- Tests d'interopérabilité
+1. Page d'accueil (index.md) : point d'entrée, présentation générale, plan du guide
+2. Introduction et contexte : expliquer le pourquoi et le comment, bénéfices, limites, relations avec d'autres IG
+3. Artefacts techniques : profils, extensions, terminologies, opérations, recherche
+4. Guides d'implémentation : workflows métier, règles de validation, gestion des erreurs, exemples d'intégration
+5. Exemples et cas d'usage : instances minimales, scénarios complexes, cas limites, tests d'interopérabilité
 
 ### 6. Conformité et validation
 **Rôle** : Assurer la qualité

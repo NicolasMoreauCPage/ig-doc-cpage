@@ -8,7 +8,7 @@ Un projet Implementation Guide FHIR suit une organisation précise des fichiers 
 mon-ig-fhir/
 ├── sushi-config.yaml      # Configuration principale
 ├── ig.ini                # Configuration IG Publisher
-├── input/                 # Sources du projet
+├── input/                # Sources du projet
 │   ├── pages/            # Documentation (Markdown)
 │   ├── fsh/              # Artefacts FSH
 │   ├── resources/        # Ressources FHIR additionnelles
@@ -23,8 +23,7 @@ mon-ig-fhir/
 ## Fichiers de configuration
 
 ### sushi-config.yaml
-**Rôle** : Configuration principale du projet IG
-**Contenu essentiel** :
+Configuration principale du projet IG. Exemple :
 ```yaml
 id: mon-ig-fhir
 canonical: https://example.org/ig/mon-ig
@@ -40,8 +39,7 @@ menu:
 ```
 
 ### ig.ini
-**Rôle** : Configuration spécifique à IG Publisher
-**Exemple** :
+Configuration spécifique à IG Publisher. Exemple :
 ```ini
 [IG]
 ig = input/fsh/
@@ -52,12 +50,12 @@ output = output/
 ## Dossier input/
 
 ### pages/
-- **Contenu** : Pages de documentation en Markdown
-- **Convention** : Un fichier par section/logique
-- **Exemples** :
-  - `index.md` : Page d'accueil
-  - `introduction.md` : Présentation du domaine
-  - `profils.md` : Liste des profils
+- Pages de documentation en Markdown
+- Un fichier par section/logique
+- Exemples :
+  - `index.md` : page d'accueil
+  - `introduction.md` : présentation du domaine
+  - `profils.md` : liste des profils
 
 ### fsh/
 - **Contenu** : Définition des artefacts en FHIR Shorthand

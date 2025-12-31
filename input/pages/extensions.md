@@ -6,16 +6,16 @@ permalink: /extensions.html
 
 # Extensions FHIR : Étendre les ressources
 
-Les **extensions FHIR** permettent d'ajouter des éléments de données personnalisés aux ressources FHIR, lorsque le core FHIR ne couvre pas tous les besoins métier.
+Les extensions FHIR permettent d'ajouter des éléments de données personnalisés aux ressources FHIR, lorsque le core FHIR ne couvre pas tous les besoins métier.
 
 ## Quand utiliser une extension ?
 
 Une extension est nécessaire quand :
-- Le core FHIR n'a pas d'élément pour votre donnée
-- Vous voulez ajouter des métadonnées spécifiques
+- Le core FHIR n'a pas d'élément pour la donnée
+- Vous souhaitez ajouter des métadonnées spécifiques
 - Vous devez spécialiser un élément existant
 
-**Règle d'or** : Vérifiez toujours si une extension officielle HL7 existe déjà avant d'en créer une nouvelle !
+Avant de créer une extension, vérifiez si une extension officielle HL7 existe déjà.
 
 ## Types d'extensions
 

@@ -23,8 +23,7 @@ jurisdiction: urn:iso:std:iso:3166#FR "FRANCE"
 parameters:
   shownav: true
 
-dependencies:
-
+dependencies: {}
 
 pages:
   index.md:
@@ -43,6 +42,10 @@ pages:
     title: Bonnes pratiques
   publication-validation.md:
     title: Publication et validation
+  versioning.md:
+    title: Versionnement d’un IG
+  packages.md:
+    title: Utiliser les packages (.tgz / .zip)
   faq.md:
     title: FAQ
   liens-utiles.md:
@@ -51,18 +54,34 @@ pages:
     title: Annexes
   integration-package.md:
     title: Intégration du package IG FHIR
+  documentation.md:
+    title: Documentation
+  downloads.md:
+    title: Téléchargement du guide
 
 menu:
   "Accueil": index.html
   "Introduction": introduction.html
   "Prise en main rapide": quickstart.html
-  "Structure":
-    "Structure d’un IG": structure-ig.html
+  "Structure du guide":
+    "Vue d'ensemble": structure-ig.html
     "Pages & menu": structure-pages-menu.html
+    "Structure projet": structure-projet.html
   "Outils et technologies": outils.html
   "Bonnes pratiques": bonnes-pratiques.html
-  "Publication & validation": publication-validation.html
+  "Publication et distribution":
+    "Publication et validation": publication-validation.html
+    "Versionnement": versioning.html
+    "Packages IG (.tgz/.zip)": packages.html
+    "Intégration package IG": integration-package.html
+  "Ressources normatives":
+    "Profils": profiles.html
+    "Extensions": extensions.html
+    "Terminologies": terminologies.html
+    "Artifacts (conformité)": artifacts.html
   "FAQ": faq.html
-  "Liens utiles": liens-utiles.html
-  "Annexes": annexes.html
-  "Intégration du package IG FHIR": integration-package.html
+  "Documentation et annexes":
+    "Documentation IGs (interop)": new-tab https://interop.esante.gouv.fr/ig/documentation/
+    "Téléchargements": downloads.html
+    "Liens utiles": liens-utiles.html
+    "Annexes": annexes.html

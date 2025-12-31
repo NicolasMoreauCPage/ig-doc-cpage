@@ -1,43 +1,46 @@
 
+
 # Introduction aux Implementation Guides FHIR
 
-Ce guide documentaire vous accompagne pas à pas dans la création, la publication et la maintenance d’Implementation Guides (IG) FHIR au sein de l’entreprise CPage. Il combine méthodologie éprouvée, exemples concrets et retours d’expérience pour garantir des IG de qualité professionnelle.
+Ce guide vous accompagne dans la création, la publication et la maintenance d’Implementation Guides (IG) FHIR au sein de l’entreprise CPage. Il s’appuie sur la méthodologie, des exemples concrets et des retours d’expérience pour garantir des IG de qualité.
+
 
 ## Qu'est-ce que FHIR et pourquoi des IG ?
 
-**FHIR (Fast Healthcare Interoperability Resources)** est un standard international d'interopérabilité en santé, développé par HL7. Il définit une API RESTful et un modèle de données pour échanger des informations médicales de manière standardisée et sécurisée.
+FHIR (Fast Healthcare Interoperability Resources) est un standard international d'interopérabilité en santé, développé par HL7. Il définit une API RESTful et un modèle de données pour échanger des informations médicales de manière standardisée.
 
-Cependant, FHIR en lui-même est générique. Pour répondre à des besoins spécifiques (comme l'échange de données de vaccination en France ou la prescription électronique), il faut **contraindre et étendre** FHIR. C'est le rôle des **Implementation Guides**.
+FHIR est générique. Pour répondre à des besoins spécifiques (ex : vaccination, prescription électronique), il faut contraindre et étendre FHIR. C’est le rôle des Implementation Guides.
 
 Un IG FHIR formalise :
-- **Comment utiliser FHIR** pour un cas d'usage précis
-- **Quelles contraintes appliquer** aux ressources (profils)
-- **Quelles extensions ajouter** si nécessaire
-- **Comment valider la conformité** des échanges
-- **Comment documenter et publier** les spécifications
+- L’utilisation de FHIR pour un cas d’usage précis
+- Les contraintes à appliquer aux ressources (profils)
+- Les extensions à ajouter si nécessaire
+- La validation de la conformité des échanges
+- La documentation et la publication des spécifications
+
 
 ## Avantages des IG FHIR
 
-- **Standardisation** : Alignement sur les meilleures pratiques internationales
-- **Interopérabilité** : Échanges fiables entre systèmes hétérogènes
-- **Réutilisabilité** : IG publiés peuvent être repris par d'autres projets
-- **Qualité** : Validation automatique et documentation structurée
-- **Évolutivité** : Versionnement et maintenance facilités
+- Standardisation : alignement sur les pratiques internationales
+- Interopérabilité : échanges fiables entre systèmes
+- Réutilisabilité : IG publiés réutilisables par d’autres projets
+- Qualité : validation automatique et documentation structurée
+- Évolutivité : versionnement et maintenance facilités
 
-## Cycle de vie d'un IG
 
-1. **Analyse des besoins** : Identifier le cas d'usage et les acteurs
-2. **Modélisation** : Définir profils, extensions, terminologies
-3. **Documentation** : Rédiger guides d'implémentation et exemples
-4. **Validation** : Tests de conformité et qualité
-5. **Publication** : Site web et package NPM
-6. **Maintenance** : Évolutions, corrections, nouvelles versions
+## Cycle de vie d’un IG
+
+1. Analyse des besoins : identifier le cas d’usage et les acteurs
+2. Modélisation : définir profils, extensions, terminologies
+3. Documentation : rédiger guides d’implémentation et exemples
+4. Validation : tests de conformité et qualité
+5. Publication : site web et package NPM
+6. Maintenance : évolutions, corrections, nouvelles versions
+
 
 ## Public concerné
 
-Ce guide s'adresse à différents profils :
-
-- **Débutants FHIR** : Découvrez les concepts fondamentaux
+Ce guide s’adresse à différents profils : débutants FHIR, modélisateurs, développeurs, experts métier, architectes, etc.
 - **Modélisateurs** : Maîtrisez la création de profils et extensions
 - **Développeurs** : Implémentez et validez les interfaces
 - **Experts métier** : Spécifiez les besoins fonctionnels

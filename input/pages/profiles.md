@@ -4,36 +4,40 @@ layout: default
 permalink: /profiles.html
 ---
 
+
 # Profils FHIR : Contraintes sur les ressources
 
-Les **profils FHIR** sont au cœur des Implementation Guides. Ils permettent de contraindre les ressources FHIR génériques pour les adapter à des cas d'usage spécifiques, garantissant ainsi l'interopérabilité et la conformité.
+Les profils FHIR sont au cœur des Implementation Guides. Ils permettent de contraindre les ressources FHIR génériques pour les adapter à des cas d'usage spécifiques, garantissant ainsi l'interopérabilité et la conformité.
+
 
 ## Qu'est-ce qu'un profil FHIR ?
 
-Un profil définit des **contraintes** sur une ressource FHIR de base :
-- **Cardinalités** : Rendre obligatoire un élément optionnel (0..1 → 1..1)
-- **Types de données** : Restreindre à un sous-ensemble de valeurs
-- **Terminologies** : Imposer des code systems ou value sets spécifiques
-- **Extensions** : Ajouter des éléments personnalisés
-- **Invariants** : Règles de validation complexes
+Un profil définit des contraintes sur une ressource FHIR de base :
+- Cardinalités : rendre obligatoire un élément optionnel (0..1 → 1..1)
+- Types de données : restreindre à un sous-ensemble de valeurs
+- Terminologies : imposer des code systems ou value sets spécifiques
+- Extensions : ajouter des éléments personnalisés
+- Invariants : règles de validation complexes
 
-Exemple concret : Le profil `Patient` de base FHIR permet beaucoup de liberté. Un profil métier peut contraindre le nom à être obligatoire, limiter les identifiants possibles, etc.
+Exemple : Le profil Patient de base FHIR permet beaucoup de liberté. Un profil métier peut contraindre le nom à être obligatoire, limiter les identifiants possibles, etc.
+
 
 ## Pourquoi créer des profils ?
 
-- **Interopérabilité** : Assurer que tous les systèmes parlent le même "langage"
-- **Conformité** : Respecter les réglementations (RGPD, normes métier)
-- **Qualité** : Réduire les ambiguïtés et les erreurs d'implémentation
-- **Réutilisabilité** : Profils publiés peuvent être repris par d'autres IG
+- Interopérabilité : assurer que tous les systèmes parlent le même langage
+- Conformité : respecter les réglementations (RGPD, normes métier)
+- Qualité : réduire les ambiguïtés et les erreurs d'implémentation
+- Réutilisabilité : profils publiés peuvent être repris par d'autres IG
+
 
 ## Comment créer un profil ?
 
-### 1. Analyse du besoin
-- Identifier la ressource de base (Patient, Observation, etc.)
-- Définir les contraintes métier nécessaires
-- Vérifier l'existence de profils similaires dans l'écosystème
+1. Analyse du besoin :
+   - Identifier la ressource de base (Patient, Observation, etc.)
+   - Définir les contraintes métier nécessaires
+   - Vérifier l'existence de profils similaires dans l'écosystème
+2. Définition en FSH (FHIR Shorthand) :
 
-### 2. Définition en FSH (FHIR Shorthand)
 ```fsh
 Profile: MonPatient
 Parent: Patient
@@ -53,7 +57,8 @@ Description: "Profil pour les patients dans le contexte métier X"
 * identifier[ins].system = "urn:oid:1.2.250.1.213.1.4.9" // INS
 ```
 
-### 3. Compilation avec SUSHI
+3. Compilation avec SUSHI :
+
 ```bash
 sushi .
 ```

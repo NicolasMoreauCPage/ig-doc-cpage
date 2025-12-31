@@ -1,10 +1,12 @@
 
 # Déclarer des pages et le menu dans un IG FHIR
 
+
 ## 1. Où placer les fichiers markdown ?
 
 - Placez chaque page de documentation dans le dossier `input/pages/`.
 - Le nom du fichier doit se terminer par `.md` (ex : `nouvelle-page.md`).
+
 
 ## 2. Déclarer les pages dans sushi-config.yaml
 
@@ -20,6 +22,7 @@ pages:
 
 - Le titre sera affiché en haut de la page générée.
 - L'ordre des pages dans ce bloc détermine l'ordre de génération.
+
 
 ## 3. Déclarer le menu de navigation
 
@@ -37,6 +40,7 @@ menu:
 - Les valeurs sont les fichiers HTML générés (même nom que le .md mais en .html).
 - Pour un sous-menu, utilisez l’imbrication YAML comme ci-dessus.
 
+
 ## 4. Exemple complet
 
 ```yaml
@@ -53,6 +57,7 @@ menu:
   "Guide technique": guide-technique.html
   Annexes: annexes.html
 ```
+
 
 ## 5. Bonnes pratiques
 

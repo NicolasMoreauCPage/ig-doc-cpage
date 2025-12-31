@@ -1,62 +1,36 @@
 
 # Guide documentaire IG FHIR – Accueil
 
-Bienvenue sur le **Guide documentaire IG FHIR** de l’entreprise CPage. Ce guide complet vous accompagne dans la création, la publication et la maintenance d’Implementation Guides (IG) FHIR, en suivant les meilleures pratiques de l’industrie et les standards HL7.
+
+Bienvenue sur le guide documentaire IG FHIR de l’entreprise CPage. Ce document vous accompagne dans la création, la publication et la maintenance d’Implementation Guides (IG) FHIR, en s’appuyant sur les pratiques de l’industrie et les standards HL7.
 
 ---
 
+
 ## Pourquoi un IG par projet ?
 
-Créer un Implementation Guide (IG) par projet présente de nombreux avantages :
+Créer un Implementation Guide (IG) par projet permet d’assurer un versionnage indépendant, une gestion claire des dépendances, des URLs explicites, la réutilisation et la spécialisation, ainsi qu’une meilleure interopérabilité avec l’écosystème national. Chaque IG CPage doit hériter des profils FHIR nationaux (InteropSanté, ANS) s’ils existent.
 
-- **Versionnage indépendant** : chaque IG évolue à son propre rythme, facilitant la maintenance.
-- **Gestion claire des dépendances** : chaque IG déclare ses dépendances (profils nationaux, terminologies, etc.) sans impacter les autres.
-- **URLs explicites** : chaque IG possède une URL canonique unique, facilitant l’accès et la traçabilité.
-- **Réutilisation et spécialisation** : il est possible de surspécifier ou d’hériter d’un IG existant pour un nouveau cas d’usage.
-- **Interopérabilité nationale** : chaque IG CPage doit hériter des profils FHIR nationaux (InteropSanté, ANS) s’ils existent, pour garantir la compatibilité avec l’écosystème français.
+Pour aller plus loin : [ImplementationGuide](https://www.hl7.org/fhir/implementationguide.html), [NPM Package](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
 
-Documentation officielle : [ImplementationGuide](https://www.hl7.org/fhir/implementationguide.html), [NPM Package](https://confluence.hl7.org/display/FHIR/NPM+Package+Specification)
 
 
 ## Qu'est-ce qu'un IG FHIR ?
 
-Un **Implementation Guide FHIR** est un document structuré qui décrit comment utiliser le standard FHIR (Fast Healthcare Interoperability Resources) pour répondre à un besoin spécifique d’interopérabilité en santé. Il combine :
+Un Implementation Guide FHIR est un document qui décrit comment utiliser le standard FHIR pour répondre à un besoin d’interopérabilité en santé. Il regroupe profils, extensions, exemples, documentation narrative et terminologies. L’IG est publié sous forme de site web interactif et de package NPM, pour faciliter sa réutilisation et son intégration.
 
-- **Profils** : Contraintes sur les ressources FHIR pour des cas d'usage précis
-- **Extensions** : Nouveaux éléments de données non couverts par le core FHIR
-- **Exemples** : Instances concrètes illustrant l'usage
-- **Documentation narrative** : Guides d'implémentation, bonnes pratiques, cas d'usage
-- **Terminologies** : Value sets et code systems adaptés
 
-Un IG est publié sous forme de site web interactif et de package NPM, facilitant sa réutilisation et son intégration.
+## Objectifs du guide
 
-## Objectifs de ce guide
+Ce guide vise à structurer votre démarche, à présenter les outils nécessaires (SUSHI, IG Publisher…), à exposer les bonnes pratiques et à faciliter la collaboration autour des IG FHIR.
 
-- **Structurer votre approche** : Méthodologie pas à pas pour créer des IG de qualité
-- **Maîtriser les outils** : Installation, configuration et utilisation de SUSHI, IG Publisher, etc.
-- **Appliquer les bonnes pratiques** : Qualité, conformité, maintenabilité
-- **Faciliter la collaboration** : Publication, validation, gestion des versions
 
 ## Public visé
 
-Ce guide s'adresse à tous les acteurs impliqués dans les projets FHIR :
+Ce guide s’adresse à tous les acteurs impliqués dans les projets FHIR : modélisateurs, développeurs, experts métier, architectes, ou toute personne souhaitant comprendre ou contribuer aux IG FHIR.
 
-- **Modélisateurs FHIR** : Définition des profils et extensions
-- **Développeurs** : Implémentation des interfaces et validation
-- **Experts métier** : Spécification des besoins fonctionnels
-- **Architectes** : Conception de l'écosystème d'interopérabilité
-- **Toute personne** souhaitant comprendre ou contribuer aux IG FHIR
 
-## À qui est destiné ce guide ?
-
-Ce guide s'adresse à toutes les personnes travaillant avec FHIR :
-
-- **Les FHIR modelers** : Qui créent les guides et profilent des ressources
-- **Les FHIR implementers** : Qui lisent ces guides et développent des APIs
-- **Les experts fonctionnels** : Qui ont la vision métier et challengent les travaux de modélisation
-- **Les architectes** : Qui conçoivent l'écosystème d'interopérabilité
-
-## Reporter un problème ou une suggestion
+## Signaler un problème ou une suggestion
 
 Vous avez identifié une erreur ou souhaitez proposer une amélioration ? Utilisez l'onglet "Issues" du [dépôt GitHub](https://github.com/NicolasMoreauCPage/ig-fhir-doc-cpage/issues) pour signaler un problème.
 
@@ -78,6 +52,8 @@ L'issue doit contenir :
 9. **[Outils](outils.html)** : Écosystème technique FHIR
 10. **[FAQ](faq.html)** : Questions fréquentes
 11. **[Liens utiles](liens-utiles.html)** : Ressources complémentaires
+12. **[Versionnement d'un IG](versioning.html)** : Stratégies de gestion des versions et bonnes pratiques
+13. **[Utiliser les packages (.tgz / .zip)](packages.html)** : Création, publication et import de packages IG
 
 Utilisez le menu de navigation pour explorer les sections qui vous intéressent.
 
@@ -114,8 +90,3 @@ N'hésitez pas à partager vos retours d'expérience pour enrichir ce guide coll
 - [Table des matières](toc.html) | [QA](output/qa.html) | [Historique](https://github.com/NicolasMoreauCPage/ig-fhir-doc-cpage/commits/main) | [Contact](mailto:interop@cpage.fr)
 
 ---
-
-<div style="font-size:0.9em; color:#888; margin-top:2em; border-top:1px solid #eee; padding-top:1em;">
-IG © 2020+ CPage. Basé sur FHIR 4.0.1. Généré le 30/12/2025.<br/>
-Liens : [CPage](https://www.cpage.fr/) | [Documentation ANS](https://interop.esante.gouv.fr/ig/documentation/) | [HL7 France](https://hl7.fr/)
-</div>

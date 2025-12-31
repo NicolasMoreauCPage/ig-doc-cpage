@@ -1,63 +1,59 @@
 # Publication, validation et déploiement des IG FHIR
 
-La publication d'un IG FHIR est une étape critique qui transforme vos artefacts en ressource accessible et maintenable. Cette page détaille le processus complet de validation, publication et déploiement.
+La publication d'un IG FHIR transforme les artefacts en ressource accessible et maintenable. Cette page détaille le processus de validation, publication et déploiement.
 
-## Validation : Assurer la qualité
+## Validation : assurer la qualité
 
 ### Types de validation
 
-#### 1. Validation syntaxique
-- **FSH** : Syntaxe correcte des fichiers `.fsh`
-- **JSON/XML** : Conformité au schéma FHIR
-- **Outil** : SUSHI (`sushi .`) et IG Publisher
-
-#### 2. Validation sémantique
-- **Profils** : Cohérence des contraintes
-- **Terminologies** : Codes valides et à jour
-- **Exemples** : Conformité aux profils
-
-#### 3. Validation fonctionnelle
-- **Interopérabilité** : Tests d'échange entre systèmes
-- **Performance** : Taille des payloads, temps de réponse
-- **Sécurité** : Conformité RGPD, authentification
+1. Validation syntaxique :
+  - FSH : syntaxe correcte des fichiers `.fsh`
+  - JSON/XML : conformité au schéma FHIR
+  - Outils : SUSHI (`sushi .`) et IG Publisher
+2. Validation sémantique :
+  - Profils : cohérence des contraintes
+  - Terminologies : codes valides et à jour
+  - Exemples : conformité aux profils
+3. Validation fonctionnelle :
+  - Interopérabilité : tests d'échange entre systèmes
+  - Performance : taille des payloads, temps de réponse
+  - Sécurité : conformité RGPD, authentification
 
 ### Outils de validation
 
-- **IG Publisher** : Validation automatique lors de la génération
-- **FHIR Validator** : Outil en ligne de commande
-- **Touchstone** : Plateforme de test d'interopérabilité
-- **Postman/Newman** : Tests d'API automatisés
+- IG Publisher : validation automatique lors de la génération
+- FHIR Validator : outil en ligne de commande
+- Touchstone : plateforme de test d'interopérabilité
+- Postman/Newman : tests d'API automatisés
 
 ### Critères de qualité
 
-- ✅ **0 erreur** dans les logs IG Publisher
-- ✅ **Exemples valides** pour tous les profils
-- ✅ **Terminologies résolues** et à jour
-- ✅ **Documentation complète** et claire
+- 0 erreur dans les logs IG Publisher
+- Exemples valides pour tous les profils
+- Terminologies résolues et à jour
+- Documentation complète et claire
 
-## Publication : Rendre accessible
+## Publication : rendre accessible
 
 ### Formats de publication
 
-#### 1. Site web (recommandé)
-- **Génération** : IG Publisher crée un site Jekyll
-- **Hébergement** : GitHub Pages, serveur interne
-- **Avantages** : Navigation facile, recherche intégrée
-
-#### 2. Package NPM
-- **Contenu** : Artefacts FHIR + dépendances
-- **Usage** : Réutilisation dans d'autres IG
-- **Publication** : Registre NPM ou dépôt privé
-
-#### 3. Documentation PDF
-- **Usage** : Archives, conformité réglementaire
-- **Génération** : À partir du HTML ou outils spécialisés
+1. Site web (recommandé) :
+  - Génération : IG Publisher crée un site Jekyll
+  - Hébergement : GitHub Pages, serveur interne
+  - Avantages : navigation facile, recherche intégrée
+2. Package NPM :
+  - Contenu : artefacts FHIR et dépendances
+  - Usage : réutilisation dans d'autres IG
+  - Publication : registre NPM ou dépôt privé
+3. Documentation PDF :
+  - Usage : archives, conformité réglementaire
+  - Génération : à partir du HTML ou outils spécialisés
 
 ### Processus de publication
 
-1. **Build local** : `./_genonce.sh`
-2. **Validation** : Vérifier les logs et rapports QA
-3. **Tests** : Validation croisée avec consommateurs
+1. Build local : `./_genonce.sh`
+2. Validation : vérifier les logs et rapports QA
+3. Tests : validation croisée avec consommateurs
 4. **Versionning** : Tag Git, numéro de version
 5. **Déploiement** : Push sur branche de publication
 

@@ -1,19 +1,24 @@
-> **Bon à savoir :** La page [Bonnes pratiques](bonnes-pratiques.html) centralise les recommandations pour structurer et organiser efficacement vos pages et menus IG FHIR.
-# Structure des pages & menu
+
+
+# Structure des pages et menu
 
 Cette page regroupe toutes les bonnes pratiques pour organiser vos pages et le menu de navigation dans un IG FHIR.
 
+
 ## Où placer les fichiers markdown ?
 - Placez chaque page dans `input/pages/`.
+
 
 ## Déclarer les pages dans sushi-config.yaml
 - Dans la section `pages:`, listez chaque fichier `.md` à générer.
 - Le titre associé s'affichera en haut de la page.
 
+
 ## Déclarer le menu de navigation
 - Dans la section `menu:`, structurez le menu comme vous le souhaitez.
 - Les clés sont les libellés du menu, les valeurs les fichiers `.html` générés.
 - Utilisez l'imbrication YAML pour les sous-menus.
+
 
 ## Exemples
 ```yaml

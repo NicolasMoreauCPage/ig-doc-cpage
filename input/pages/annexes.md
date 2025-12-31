@@ -1,11 +1,13 @@
 
-> **Astuce :** Avant de créer ou modifier un artefact, consultez la page [Bonnes pratiques](bonnes-pratiques.html) pour garantir la conformité de votre IG.
+
+
 
 
 # Annexes
 
 
-## Modèle type de sushi-config.yaml
+
+## Exemple de sushi-config.yaml
 
 ```yaml
 id: ig-fhir-doc-cpage
@@ -35,6 +37,7 @@ parameters:
 ```
 
 
+
 ## Exemple de structure de page Markdown
 
 ```markdown
@@ -48,6 +51,7 @@ Paragraphe explicatif…
 
 [Un lien utile](https://hl7.org/fhir)
 ```
+
 
 
 ## Liens complémentaires

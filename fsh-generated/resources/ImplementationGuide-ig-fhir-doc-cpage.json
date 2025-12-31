@@ -4,7 +4,7 @@
   "url": "https://www.cpage.fr/ig/ig-fhir-doc-cpage/ImplementationGuide/ig-fhir-doc-cpage",
   "version": "0.1.0",
   "name": "IGFHIRDocCPage",
-  "title": "Guide documentaire CPage des guides d'implémentation FHIR",
+  "title": "Guide documentaire IG FHIR CPage",
   "status": "draft",
   "date": "2025-12-30",
   "publisher": "CPage",
@@ -23,13 +23,12 @@
       "telecom": [
         {
           "system": "email",
-          "value": "nicolas.moreau@cpage.fr",
-          "use": "work"
+          "value": "contact@cpage.fr"
         }
       ]
     }
   ],
-  "description": "Ce guide propose une documentation complète sur la création, la publication et la maintenance des guides d’implémentation FHIR, à destination de la communauté francophone.",
+  "description": "Ce guide propose une documentation complète sur la création, la publication et la maintenance des guides d’implémentation FHIR, à destination de la communauté de l’entreprise.",
   "jurisdiction": [
     {
       "coding": [
@@ -63,13 +62,18 @@
           "generation": "markdown"
         },
         {
+          "nameUrl": "quickstart.html",
+          "title": "Prise en main rapide",
+          "generation": "markdown"
+        },
+        {
           "nameUrl": "structure-ig.html",
           "title": "Structure d’un IG",
           "generation": "markdown"
         },
         {
-          "nameUrl": "structure-projet.html",
-          "title": "Structure du projet",
+          "nameUrl": "structure-pages-menu.html",
+          "title": "Structure des pages & menu",
           "generation": "markdown"
         },
         {
@@ -88,6 +92,16 @@
           "generation": "markdown"
         },
         {
+          "nameUrl": "versioning.html",
+          "title": "Versionnement d’un IG",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "packages.html",
+          "title": "Utiliser les packages (.tgz / .zip)",
+          "generation": "markdown"
+        },
+        {
           "nameUrl": "faq.html",
           "title": "FAQ",
           "generation": "markdown"
@@ -100,6 +114,21 @@
         {
           "nameUrl": "annexes.html",
           "title": "Annexes",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "integration-package.html",
+          "title": "Intégration du package IG FHIR",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "documentation.html",
+          "title": "Documentation",
+          "generation": "markdown"
+        },
+        {
+          "nameUrl": "downloads.html",
+          "title": "Téléchargement du guide",
           "generation": "markdown"
         }
       ]

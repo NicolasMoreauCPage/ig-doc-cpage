@@ -1,61 +1,39 @@
 
-# Prise en main rapide : Votre premier IG FHIR en 10 minutes
 
-Bienvenue ! Cette page vous guide pour créer votre premier Implementation Guide FHIR en quelques minutes. Pas besoin d'être expert, suivez simplement les étapes.
+# Prise en main rapide : créer un IG FHIR
 
----
+Cette page vous guide pour créer un Implementation Guide FHIR en quelques minutes. Suivez les étapes, même sans expertise préalable.
 
-## Navigation par profil utilisateur
+## Pour qui ?
 
-Ce guide s'adresse à différents profils :
-- Débutant FHIR : Suivez chaque étape du guide.
-- Modélisateur : Concentrez-vous sur la configuration, la création de profils/extensions, et la validation.
-- Développeur : Portez une attention particulière à la compilation, la validation et aux exemples d'usage.
-- Expert métier : Lisez les sections sur la documentation narrative, la justification des choix et la conformité métier.
-- Architecte : Analysez la structure du projet, la gestion des dépendances et l'intégration dans l'écosystème CPage.
+Le guide s’adresse aux débutants, modélisateurs, développeurs, experts métier et architectes. Adaptez votre lecture selon votre profil.
 
-Ce tutoriel utilise le template IG CPage, qui est réservé aux projets CPage uniquement. Pour des projets externes, utilisez le template officiel HL7 : https://github.com/HL7/ig-template-base
+Ce tutoriel utilise le template IG CPage (réservé aux projets internes). Pour un projet externe, utilisez le template HL7 : https://github.com/HL7/ig-template-base
 
-## Outils utilisés dans ce guide
 
-### FSH (FHIR Shorthand)
-**Rôle** : Langage de définition des ressources FHIR
-- [Documentation FSH](https://build.fhir.org/ig/HL7/fhir-shorthand/)
-- [Éditeur en ligne](https://fshschool.org/)
+## Outils utilisés
 
-### SUSHI
-**Rôle** : Compilateur FSH vers ressources FHIR
-- [Documentation SUSHI](https://fshschool.org/docs/sushi/)
-- Commande de base : `sushi .`
-- Avec snapshots : `sushi -s .`
+- FSH (FHIR Shorthand) : langage de définition des ressources FHIR ([doc](https://build.fhir.org/ig/HL7/fhir-shorthand/), [éditeur en ligne](https://fshschool.org/))
+- SUSHI : compilateur FSH vers ressources FHIR ([doc](https://fshschool.org/docs/sushi/)), commande : `sushi .`
+- IG Publisher : génération du site web de l’IG ([doc](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation)), commande : `./_genonce.sh`
 
-### IG Publisher
-**Rôle** : Génération du site web de l'IG
-- [Documentation officielle](https://confluence.hl7.org/display/FHIR/IG+Publisher+Documentation)
-- Commande : `./_genonce.sh`
 
 ## Prérequis
 
+- Environnement configuré : voir la page [Installation](installation.html)
+- Dépôt cloné : travaillez dans un dossier IG (comme celui-ci)
 
-- **Environnement configuré** : Si ce n'est pas fait, consultez la page [Installation](installation.html)
-- **Dépôt cloné** : Vous travaillez dans un dossier IG (comme celui-ci)
 
 ## Configuration après clonage du template IG
 
+Après avoir cloné le template IG CPage, personnalisez les fichiers de configuration pour éviter les conflits et adapter le guide à votre projet.
 
-Après avoir cloné le template IG CPage, vous devez configurer plusieurs fichiers pour personnaliser votre IG. Cette étape est cruciale pour éviter les conflits et personnaliser votre guide d'implémentation.
+### 1. Choisir l’ID dans sushi-config.yaml
 
-### 1. Choix de l'ID dans sushi-config.yaml
-
-L'ID doit respecter les **règles strictes des templates FHIR IG** et être **unique globalement** :
+L’ID doit respecter les règles des templates FHIR IG et être unique globalement :
 
 ```yaml
 id: ig-[organisation]-[standard]-[type]-[projet]
-```
-
-**Modèle normalisé recommandé :**
-```
-ig-[organisation]-[standard]-[type]-[projet]
 ```
 
 **Composants du modèle :**

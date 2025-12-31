@@ -4,26 +4,30 @@ layout: default
 permalink: /terminologies.html
 ---
 
+
 # Terminologies FHIR : Codes et value sets
 
-Les **terminologies** sont essentielles en FHIR pour standardiser les codes utilisés dans les échanges. Elles garantissent l'interopérabilité sémantique entre systèmes.
+Les terminologies sont essentielles en FHIR pour standardiser les codes utilisés dans les échanges. Elles garantissent l'interopérabilité sémantique entre systèmes.
+
 
 ## Concepts clés
 
 ### Code System
-Un **code system** définit un ensemble de codes avec leurs significations :
-- **Exemples** : SNOMED CT, LOINC, ICD-10
-- **Structure** : Code, display, définition
-- **Usage** : Identifier des concepts médicaux de manière standardisée
+Un code system définit un ensemble de codes avec leurs significations :
+- Exemples : SNOMED CT, LOINC, ICD-10
+- Structure : code, display, définition
+- Usage : identifier des concepts médicaux de manière standardisée
 
 ### Value Set
-Un **value set** sélectionne un sous-ensemble de codes d'un ou plusieurs code systems :
-- **Binding** : Faible (exemple), fort (requis), extensible
-- **Usage** : Contrôler les valeurs autorisées dans un élément
+Un value set sélectionne un sous-ensemble de codes d'un ou plusieurs code systems :
+- Binding : faible (exemple), fort (requis), extensible
+- Usage : contrôler les valeurs autorisées dans un élément
+
 
 ## Création d'une terminologie en FSH
 
-### 1. Définition d'un CodeSystem
+1. Définition d'un CodeSystem :
+
 ```fsh
 CodeSystem: TypeConsultation
 Id: type-consultation
@@ -34,7 +38,8 @@ Description: "Classification des types de consultation médicale"
 * #urgence "Urgence" "Consultation aux urgences"
 ```
 
-### 2. Définition d'un ValueSet
+2. Définition d'un ValueSet :
+
 ```fsh
 ValueSet: TypeConsultationVS
 Id: type-consultation-vs
@@ -43,20 +48,22 @@ Description: "Types de consultation autorisés"
 * include codes from system TypeConsultation
 ```
 
-### 3. Utilisation dans un profil
+3. Utilisation dans un profil :
+
 ```fsh
 Profile: MaConsultation
 Parent: Encounter
 * type from TypeConsultationVS (required)
 ```
 
+
 ## Bonnes pratiques
 
-- **Réutilisez** : Privilégiez les terminologies internationales (SNOMED, LOINC)
-- **Versionnez** : Chaque évolution doit être tracée
-- **Documentez** : Description claire, exemples d'usage
-- **Validez** : Vérifiez la cohérence des codes
-- **Maintenez** : Mettez à jour régulièrement
+- Réutiliser : privilégier les terminologies internationales (SNOMED, LOINC)
+- Versionner : chaque évolution doit être tracée
+- Documenter : description claire, exemples d'usage
+- Valider : vérifier la cohérence des codes
+- Maintenir : mettre à jour régulièrement
 
 ## Terminologies de référence
 

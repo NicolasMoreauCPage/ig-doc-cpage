@@ -1,4 +1,16 @@
 <!-- CPage Logo Header -->
-<div style="width:100%;display:flex;align-items:center;gap:1em;padding:0.5em 0;">
-	<img src="assets/images/logo-cpage.svg" alt="Logo CPage" style="height:40px;max-width:200px;vertical-align:middle;" />
+<div class="ig-header-row">
+	<div class="ig-logo-wrap">
+		<img src="https://www.cpage.fr/app/uploads/2022/07/logo.svg" alt="Logo CPage" class="ig-logo" />
+	</div>
+	<div class="ig-title-wrap">
+		<div class="ig-title">Guide documentaire CPage des guides d'implémentation FHIR</div>
+			<div class="ig-subtitle">Ressources, modèles et bonnes pratiques</div>
+			{% if site.data.fhir and site.data.fhir.ig and site.data.fhir.ig.title %}
+			  <div id="ig-status" style="margin-top:6px;font-size:0.95rem;color:#3b3b3b"> 
+			    <strong>{{ site.data.fhir.ig.title }}</strong>
+			    {% if site.data.fhir.ig.version %} — v{{ site.data.fhir.ig.version }}{% endif %}
+			  </div>
+			{% endif %}
+	</div>
 </div>

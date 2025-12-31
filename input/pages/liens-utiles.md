@@ -1,8 +1,7 @@
+
 # Liens utiles et ressources complémentaires
 
-Cette page centralise les ressources essentielles pour développer, valider et publier vos Implementation Guides FHIR. Organisée par catégories pour faciliter la navigation.
-
-> **À ne pas manquer** : La page [Bonnes pratiques](bonnes-pratiques.html) regroupe les recommandations essentielles pour la rédaction et la publication d'un IG FHIR.
+Cette page centralise les ressources essentielles pour développer, valider et publier des Implementation Guides FHIR. Les liens sont organisés par catégories pour faciliter la navigation.
 
 ## Documentation officielle FHIR
 

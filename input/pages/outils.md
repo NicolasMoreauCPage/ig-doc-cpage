@@ -1,24 +1,18 @@
 # Outils et technologies pour les IG FHIR
 
-Développer un Implementation Guide FHIR nécessite un écosystème d'outils complémentaires. Cette page présente les outils essentiels, leur rôle, et comment les utiliser efficacement.
+Développer un Implementation Guide FHIR nécessite un ensemble d'outils complémentaires. Cette page présente les outils essentiels, leur rôle et leur utilisation.
 
 ## Chaîne d'outils principale
 
 ### FHIR Shorthand (FSH)
-**Rôle** : Langage de définition des artefacts FHIR
-**Avantages** :
-- Syntaxe lisible et concise
-- Moins verbeux que JSON/XML
-- Validation intégrée
-- Génération automatique de documentation
+Langage de définition des artefacts FHIR, syntaxe lisible et concise, moins verbeux que JSON/XML, validation intégrée, génération automatique de documentation.
 
-
-**Installation** :
+Installation :
 ```bash
 npm install -g fsh-sushi
 ```
 
-**Usage de base** :
+Usage de base :
 ```fsh
 Profile: MonPatient
 Parent: Patient
@@ -26,38 +20,27 @@ Parent: Patient
 * birthDate 1..1
 ```
 
-**Ressources** :
+Ressources :
 - [Documentation FSH](https://build.fhir.org/ig/HL7/fhir-shorthand/)
 - [FSH School](https://fshschool.org/)
 
 ### SUSHI (FSH Compiler)
-**Rôle** : Compilation FSH vers ressources FHIR
-**Fonctionnalités** :
-- Génération de StructureDefinitions
-- Création d'exemples
-- Validation syntaxique
-- Génération de snapshots
+Compilation FSH vers ressources FHIR, génération de StructureDefinitions, création d'exemples, validation syntaxique, génération de snapshots.
 
-
-**Commandes essentielles** :
+Commandes essentielles :
 ```bash
 sushi .                    # Compilation complète
 sushi -s .                # Avec snapshots
 sushi --help              # Aide
 ```
 
-**Dépannage** : Vérifiez les logs pour les erreurs de syntaxe FSH.
+Dépannage : vérifier les logs pour les erreurs de syntaxe FSH.
 
 ### IG Publisher (HL7)
-**Rôle** : Génération du site web IG
-**Capacités** :
-- Validation complète des artefacts
-- Génération HTML/CSS/JS
-- Rapports de qualité (QA)
-- Publication prête
+Génération du site web IG, validation complète des artefacts, génération HTML/CSS/JS, rapports de qualité (QA), publication prête.
 
 ### GoFSH (conversion inverse)
-**Rôle** : Convertir des StructureDefinitions JSON/XML existants en FSH
+Convertir des StructureDefinitions JSON/XML existants en FSH
 **Utilité** :
 - Facilite la migration d’anciens projets ou la récupération de profils existants
 - Permet de générer du FSH à partir de ressources déjà publiées

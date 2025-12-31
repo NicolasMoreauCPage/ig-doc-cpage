@@ -15,11 +15,11 @@
   "toolingVersion" : "5.0.0",
   "toolingRevision" : "3",
   "toolingVersionFull" : "5.0.0 (3)",
-  "genDate" : "Tue, Dec 30, 2025 15:47+0100",
-  "genDay" : "30/12/2025",
-  "totalFiles" : 31,
-  "processedFiles" : 36,
-  "repoSource" : "https://github.com/NicolasMoreauCPage/ig-cpage",
+  "genDate" : "Wed, Dec 31, 2025 09:39+0100",
+  "genDay" : "31/12/2025",
+  "totalFiles" : 30,
+  "processedFiles" : 32,
+  "repoSource" : "https://github.com/NicolasMoreauCPage/ig-doc-cpage.git",
   "resourceTypes" : [
     "Account",
     "ActivityDefinition",
@@ -238,7 +238,7 @@
   "ig" : {
     "id" : "ig-fhir-doc-cpage",
     "name" : "IGFHIRDocCPage",
-    "title" : "Guide documentaire CPage des guides d'implémentaion FHIR",
+    "title" : "Guide documentaire IG FHIR CPage",
     "titlelang" : {
     },
     "url" : "https://www.cpage.fr/ig/ig-fhir-doc-cpage/ImplementationGuide/ig-fhir-doc-cpage",
@@ -255,11 +255,11 @@
       },
       {
         "name" : "CPage",
-        "telecom" : ["nicolas.moreau@cpage.fr"]
+        "telecom" : ["contact@cpage.fr"]
       }
     ],
     "date" : "2025-12-30",
-    "description" : "Ce guide propose une documentation complète sur la création, la publication et la maintenance des guides d’implémentation FHIR, à destination de la communauté francophone.",
+    "description" : "Ce guide propose une documentation complète sur la création, la publication et la maintenance des guides d’implémentation FHIR, à destination de la communauté de l’entreprise.",
     "descriptionlang" : {
     },
     "tx-server" : "https://tx.fhir.org/r4",

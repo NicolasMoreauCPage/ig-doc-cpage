@@ -1,29 +1,18 @@
-# Déploiement & publication
 
-Cette page explique comment fonctionne la génération automatique (CI/CD) et la publication de votre IG FHIR sur GitHub Pages.
+# Déploiement et publication
 
-## Fonctionnement
-- À chaque push ou pull request sur la branche `main`, le workflow `.github/workflows/build-ig.yml` compile automatiquement l'IG.
-- Le site HTML généré est publié sur GitHub Pages.
+Cette page explique le fonctionnement de la génération automatique (CI/CD) et la publication de l'IG FHIR sur GitHub Pages.
 
-## Lien du site IG compilé
-- Après chaque build, le site est accessible à l'adresse :
-  `https://<utilisateur>.github.io/<nom-du-repo>/`
-  Exemple : `https://nicolasmoreaucpage.github.io/ig-fhir-doc-cpage/`
+À chaque modification sur la branche `main`, le workflow `.github/workflows/build-ig.yml` compile l'IG et publie le site HTML sur GitHub Pages.
 
-## Consulter le statut du build
-- Onglet **Actions** du dépôt GitHub.
-- Les artefacts générés (site complet) sont téléchargeables dans chaque run.
+Après chaque build, le site est accessible à l'adresse : `https://<utilisateur>.github.io/<nom-du-repo>/` (exemple : `https://nicolasmoreaucpage.github.io/ig-fhir-doc-cpage/`).
 
-## Personnalisation
-- Le workflow CI/CD est défini dans `.github/workflows/build-ig.yml`.
-- Il utilise Java, Ruby/Jekyll, et le Publisher HL7.
-- Pour modifier le déploiement, adaptez ce fichier YAML.
+Le statut du build est consultable dans l'onglet Actions du dépôt GitHub. Les artefacts générés sont téléchargeables après chaque exécution.
 
-## Dépannage
-- Voir les logs dans l'onglet Actions.
-- Vérifier la configuration de GitHub Pages dans les paramètres du dépôt.
+Le workflow CI/CD est défini dans `.github/workflows/build-ig.yml` et utilise Java, Ruby/Jekyll et le Publisher HL7. Pour modifier le déploiement, adaptez ce fichier YAML.
 
-## Voir aussi
+Pour le dépannage, consultez les logs dans l'onglet Actions et vérifiez la configuration de GitHub Pages dans les paramètres du dépôt.
+
+Voir aussi :
 - [GitHub Pages](https://docs.github.com/fr/pages)
 - [GitHub Actions](https://docs.github.com/fr/actions)
